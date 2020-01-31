@@ -1,0 +1,23 @@
+Project Ada
+
+Team: Paul BENETEAU
+      Maxime MEHIO
+
+Goal: use an accelerometer as a mouse
+
+Devices: Board STM32F429 Discovery and Ch Robotics UM6 sensor
+
+The official UM6 documentation (http://www.chrobotics.com/docs/UM6_datasheet.pdf)
+
+How the project is built:
+    The STM32F429 Discovery board is connected using serial to the computer and the
+    sensor. The UM6 sensor has two modes: Broadcast and Listen
+    Listen mode only sends data when it is requested, Broadcast mode in the over hand
+    sends data with a certain frequency. The sensor can be configured to send only certain
+    types of data, modify its frequency, etc ...
+    
+    Our focus was therefore to write a configuration to the sensor and make it permanent
+    using FLASH_COMMIT (that writes inner registers of the sensor).
+    Then we only need to parse the data received.
+
+Project made using GPS IDE and the code provided by AdaCore for STM32F429 Discovery Boards.
